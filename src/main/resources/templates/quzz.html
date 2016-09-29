@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quiz</title>
+</head>
+<body>
+
+<p th:text="${quizz.title}"></p>
+<p th:text="${quizz.descr}"></p>
+<p th:text="${quizz.createdDate}"></p>
+
+<ul>
+    <li th:each="quest:${questions}">
+        <p th:text="${quest.question}"></p>
+    </li>
+</ul>
+<br/>
+
+<ul>
+    <li th:each="choice:${choices1}">
+        <p th:text="${choice.descr}"></p>
+    </li>
+
+</ul>
+
+<ol>
+    <li th:each="choice:${choices2}">
+        <p th:text="${choice.descr}"></p>
+    </li>
+
+</ol>
+
+</body>
+</html>

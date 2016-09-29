@@ -83,9 +83,9 @@ public class QuizRepository implements Repository {
         }
     }
 
-    public Question getQuestion(long questionID) {
+    public Question getQuestion(int questionID) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT QuestionID, Questions FROM [Question] WHERE QuestionID = ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT QuestionID, Questions FROM [Questions] WHERE QuestionID = ?")) {
             ps.setLong(1, questionID);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) throw new SQLException();
@@ -96,7 +96,7 @@ public class QuizRepository implements Repository {
         }
     }
 
-    public Quiz getQuiz(long quizID) {
+    public Quiz getQuiz(int quizID) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT QuizID, Title, [Desc], CreatedDate FROM [Quiz] WHERE QuizID = ?")) {
             ps.setLong(1, quizID);
@@ -109,7 +109,7 @@ public class QuizRepository implements Repository {
         }
     }
 
-    public Answer getAnswer(long question_ID) throws SQLException {
+    public Answer getAnswer(int question_ID) throws SQLException {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT AnswersID, Answers FROM [Ansvers] WHERE Question_ID = ?")) {
             ps.setLong(1, question_ID);

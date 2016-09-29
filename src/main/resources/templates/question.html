@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Question</title>
+</head>
+<body>
+
+<p th:text="${question.question}"></p>
+
+<ul>
+    <li th:each="choice : ${choices}">
+        <p th:text="${choice.descr}"></p>
+    </li>
+</ul>
+
+<form method="post" action="/nextQuestion">
+    <input type="submit" name="questionID" th:value="${question.questionID}"/>
+</form>
+
+<form method="post" action="/previousQuestion">
+    <input type="submit" name="questionID" th:value="${question.questionID}"/>
+</form>
+
+</body>
+</html>

@@ -9,9 +9,16 @@
 <li><a href="/questions">kolla frågor</a></li>
 <li><a href="/quizzes">kolla quizzes</a></li>
 <div></div>
+
 <form method="post" action="/getQuiz">
     What ID: <input type="text" name="quizID" placeholder="Skriv ett QuizID"/>
     <input type="submit"/>
 </form>
+
+<form method="post" action="/changeQuestion">
+    What Question: <input type="text" name="questionID" placeholder="Skriv ett QuestionID"/>
+    <input type="submit"/>
+</form>
+
 </body>
 </html>
